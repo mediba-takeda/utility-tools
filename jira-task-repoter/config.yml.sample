@@ -1,0 +1,16 @@
+config:
+  protocol: 'https'
+  host: 'jira.hostname.com'
+  username: 'useraccount'
+  password: 'password'
+  apiVersion: '2'
+  strictSSL: true
+project: 'Project Name'
+jiraQuery:
+  project: 'PROJECTKEY'
+  issuetype: 'Epic'
+  Sprint: 12
+  assignee:
+    - 'user1'
+    - 'user2'
+    - 'user3'

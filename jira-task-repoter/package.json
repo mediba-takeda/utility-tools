@@ -1,0 +1,13 @@
+{
+  "name": "jira-task-repoter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "jira task repoter",
+  "license": "MIT",
+  "dependencies": {
+    "jira-client": "^6.4.0",
+    "minimist": "^1.2.0",
+    "request": "^2.81.0",
+    "yamljs": "^0.3.0"
+  }
+}
