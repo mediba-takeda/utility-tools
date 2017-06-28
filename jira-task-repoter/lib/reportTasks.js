@@ -11,9 +11,7 @@ function reportTasks (projectName, tasks) {
     string += `
 ### ${obj.title} [${obj.assignee}]
 - ステータス【${obj.status}】
-備考：
-${obj.comment}
-`
+${obj.statusId != '10001' ? '備考：'+obj.comment+"\n" : ''}`
   })
   console.log(string)
   const child = cp.spawn('pbcopy')

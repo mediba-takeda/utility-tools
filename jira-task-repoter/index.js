@@ -36,8 +36,9 @@ console.log(`run JQL: ${jql}`) // jql 出力
     const title    = issue.fields.summary
     const assignee = emailMap[issue.fields.assignee.emailAddress]
     const status   = issue.fields.status.name
+    const statusId = issue.fields.status.id
     const issueKey = issue.key
-    tasks.push({ title, assignee, status, issueKey })
+    tasks.push({ title, assignee, statusId, status, issueKey })
   })
   const asyncComments = tasks.map( async (task) => {
     return await getComments(jira, task.issueKey)
