@@ -1,3 +1,4 @@
+// API and packages
 const path    = require('path')
 const JiraApi = require('jira-client')
 const yaml    = require('yamljs')
@@ -6,6 +7,7 @@ const args    = require('minimist')(process.argv.slice(2), {
   alias: { sprint: 's' }
 })
 
+// jira lib
 const genJqlString = require('./lib/genJqlString')
 const reportTasks = require('./lib/reportTasks')
 const {
@@ -16,7 +18,7 @@ const sprint       = args.sprint.indexOf(',') >= 0
   ? args.sprint.split(',')
   : args.sprint
 
-// 設定など
+// configure and jira query
 /** config.yml から読み込む設定オブジェクト */
 const setting = yaml.load(path.join(__dirname + '/config.yml'))
 /** Emailをキーとした個人名マッピングオブジェクト */
@@ -30,6 +32,7 @@ const jira = new JiraApi(setting.config)
 const tasks = []
 console.log(`run JQL: ${jql}`) // jql 出力
 
+// asynchronous request 
 ;(async ()=> {
   const result = await searchQuery(jira, jql)
   result.issues.map( issue =>{
