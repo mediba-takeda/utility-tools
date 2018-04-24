@@ -6,6 +6,7 @@ const args    = require('minimist')(process.argv.slice(2), {
   string: ['sprint'],
   alias: { sprint: 's' }
 })
+console.log(args)
 
 // jira lib
 const genJqlString = require('./lib/genJqlString')
